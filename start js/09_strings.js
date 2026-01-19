@@ -9,5 +9,5 @@
  *  - ne pas utiliser la fonction concat de String
  */
 
-const concat = (a, b) => `${a} ${b}`;
+const concat = (prenom, nom) => `${prenom}, ${nom}`;
 console.log(concat("John", "Doe"));
