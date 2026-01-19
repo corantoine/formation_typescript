@@ -12,7 +12,8 @@
 // TODO: Créer et exporter la fonction greet
 export function greet(name: string): string {
   // À implémenter
-  throw new Error("Not implemented");
+  return `Hello, ${name}!`
+  // throw new Error("Not implemented");
 }
 
 /**
