@@ -8,10 +8,8 @@
  *  - for, foreach, while, do while sont interdits
  */
 
-const tab1 = [1, 2, 3];
-const tab2 = [4, 5, 6];
-const concat = [...tab1, ...tab2];
-console.log(concat);
+const concat = (a, b) => [...a, ...b];
+console.log(concat([1, 2, 3], [4, 5, 6]));
 
 /**
  * utiliser l'opérateur de composition ... afin d'ajouter un élément à un tableau
@@ -22,10 +20,8 @@ console.log(concat);
  * - ne pas utiliser la méthode push
  */
 
-const tab = [1, 2, 3, 4];
-const ajoutNum = 5;
-const push = [...tab, ajoutNum];
-console.log(push);
+const push = (a, b) => [...a, b];
+console.log(push([7, 6, 5], 4));
 
 /**
  * utiliser l'opérateur de composition ... afin de fusionner 2 objets passés en paramètres
@@ -33,11 +29,8 @@ console.log(push);
  * ex: {a: 1, b: 2}, {c: 3, d: 4} => {a: 1, b: 2, c: 3, d: 4}
  */
 
-const obj1 = { a: 1, b: 2 };
-const obj2 = { c: 3, d: 4 };
-const merge = { ...obj1, ...obj2 };
-console.log(merge);
-
+const merge = (a, b) => ({ ...a, ...b });
+console.log(merge({ a: 1, b: 2 }, { c: 3, d: 4 }));
 
 /**
  * utiliser l'opérateur de composition ... afin de modifier la propriété name de l'objet
@@ -48,10 +41,8 @@ console.log(merge);
  *  - interdiction d'utiliser l'opérateur d'affectation "="
  */
 
-const obj = {name: 'toto'}
-
-const setName = {...obj, name:'titi'};
-console.log(setName);
+const setName  = (obj, val) => ({...obj, name: val});
+console.log(setName({name:"toto"}, 'titi'))
 
 
 // astuce: {...obj} crée une copie de l'objet, c'est un des principes de l'immutabilité et évite les problèmes de référence
