@@ -28,19 +28,41 @@
 // TODO: Définir les types
 
 export type Article = {
-  // À compléter
+  id: number,
+  title: string,
+  content: string,
+  author: string,
+  createdAt: Date,
+  updatedAt: Date
 };
 
-export type ArticlePreview = unknown; 
+export type ArticlePreview = Pick<Article, "id" | "title" | "author">; 
 
-export type ArticleCreate = unknown; 
+export type ArticleCreate = Omit<Article, "id" | "createdAt" | "updatedAt"> 
 
 // TODO: Implémenter les fonctions
 
-export function toPreview(article: any): any {
-  throw new Error("Not implemented");
+export function toPreview(article: Article): ArticlePreview {
+  return {
+    id: article.id, 
+    title: article.title, 
+    author: article.author}
+}
+ const article = { id: 1, title: "Hello", content: "World", author: "John", createdAt: new Date(), updatedAt: new Date() }
+console.log(toPreview(article));
+
+
+export function createArticle(data: ArticleCreate): Article {
+  const now = new Date()
+  let incrementId = 1;
+  return {
+    id: incrementId++,
+    title: data.title,
+    content: data.content,
+    author: data.author,
+    createdAt: now,
+    updatedAt: now
+  }
 }
 
-export function createArticle(data: any): any {
-  throw new Error("Not implemented");
-}
+console.log(createArticle({ title: "New", content: "Article", author: "Jane" }))
