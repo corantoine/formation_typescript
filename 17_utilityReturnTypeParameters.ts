@@ -30,16 +30,26 @@ export function createUser(name: string, age: number, active: boolean) {
 
 // TODO: Définir les types avec ReturnType et Parameters
 
-export type User = unknown; 
+export type User = ReturnType<typeof createUser>
 
-export type CreateUserParams = unknown; 
+export type CreateUserParams = Parameters<typeof createUser>
 
 // TODO: Implémenter les fonctions
 
 export function cloneUser(user: User): User {
-  throw new Error("Not implemented");
+return {
+  ...user,
+  id: Math.random(),
 }
+}
+const user = createUser("Alice", 30, true)
+console.log({user});
+
+console.log(cloneUser(user));
+
 
 export function createUserFromArray(params: CreateUserParams): User {
-  throw new Error("Not implemented");
+  return createUser(...params)
 }
+console.log(createUserFromArray(["Bob", 25, false]));
+
