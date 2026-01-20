@@ -26,9 +26,9 @@
 
 // TODO: Définir le type User et implémenter les fonctions
 
-export type User = { username?: string };
+export type User = { username: string };
 
-export function formatId(id: number | string): number|string {
+export function formatId(id: number | string): string {
     return typeof id === "number" ? `ID-${id}` : id
 }
 console.log(formatId(123));
