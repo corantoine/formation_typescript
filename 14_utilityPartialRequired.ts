@@ -49,5 +49,14 @@ console.log(updateProfile(profile, { age: 26 }));
 // TODO: Implémenter validateCompleteProfile
 
 export function validateCompleteProfile(profile: Partial<UserProfile>): boolean {
-  return
+  return (
+    profile.username !== undefined &&
+    profile.email !== undefined &&
+    profile.age !== undefined &&
+    profile.bio !== undefined
+  )
 }
+
+console.log(validateCompleteProfile({username:"John"}));
+console.log(validateCompleteProfile(profile));
+
